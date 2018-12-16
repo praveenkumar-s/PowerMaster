@@ -40,6 +40,7 @@ if not pi.connected:
    exit(0)
 
 pi.set_mode(GPIO, pigpio.INPUT)
+pi.set_pull_up_down(GPIO, pigpio.PUD_UP)
 
 # Ignore edges shorter than GLITCH microseconds.
 pi.set_glitch_filter(GPIO, GLITCH)
