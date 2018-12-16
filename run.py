@@ -1,6 +1,13 @@
 import pigpio
+from apscheduler.schedulers.asyncio import AsyncIOScheduler
 
 
+try:
+    import asyncio
+except ImportError:
+    import trollius as asyncio
+
+    
 def cbf(gpio, level, tick):
        print(gpio, level, tick)
 
@@ -21,3 +28,8 @@ pi.set_glitch_filter(GPIO, GLITCH)
 
 
 cb = pi.callback(GPIO, pigpio.FALLING_EDGE, cbf)
+
+try:
+    asyncio.get_event_loop().run_forever()
+except (KeyboardInterrupt, SystemExit):
+    pass
