@@ -1,13 +1,13 @@
 import time
 import pigpio
 from datetime import datetime
-import config
+
 import subprocess
 from datetime import datetime
 import os
-from Firebase_Client_Library import firebase_client
+
 from apscheduler.schedulers.asyncio import AsyncIOScheduler
-import data_model
+
 import json
 try:
     import asyncio
